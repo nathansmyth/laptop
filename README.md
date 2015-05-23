@@ -9,6 +9,19 @@ It can be run multiple times on the same machine safely.
 It installs, upgrades, or skips packages
 based on what is already installed on the machine.
 
+
+20150523
+--------
+Here's where I wanna start, when I come back around to this.
+crew
+* [project page](http://skycocker.github.io/chromebrew/)
+* [packages list](https://github.com/skycocker/chromebrew/tree/master/packages)
+
+crouton
+* [crouton cookbook](http://tomwwolf.com/chromebook-14-compedium/chromebook-crouton-cookbook/)
+* [github repo](https://github.com/dnschneid/crouton)
+
+
 Requirements
 ------------
 
