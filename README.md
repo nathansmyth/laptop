@@ -15,7 +15,6 @@ Setup
 - Install crew
   - `wget -q -O - https://raw.github.com/skycocker/chromebrew/master/install.sh | bash`
   - installs binutils curl expat gcc gettext git glibc gmp libssh2 linuxheaders make mpc mpfr perl python readline ruby zlibpkg
-- emacs graphicsmagick
 - Setup [git ssh keys] (https://help.github.com/articles/generating-ssh-keys/)
 - Clone this repo into home
  - `cd ~ && mkdir laptop && git clone git@github.com:nathansmyth/laptop.git laptop`
