@@ -3,6 +3,18 @@ Laptop
 
 Laptop is a script to set up an chromebook laptop for web development.
 
+Setup
+======
+
+- [Enable Developer Mode] (http://www.howtogeek.com/210817/how-to-enable-developer-mode-on-your-chromebook/)
+  - esc+reload(f3)+power
+  - ctrl+d
+- Open console tab in chrome browser
+  - ctrl+alt+t
+  - `shell`
+- Install crew
+  - `wget -q -O - https://raw.github.com/skycocker/chromebrew/master/install.sh | bash`
+
 Roadmap
 ======
 It can be run multiple times on the same machine safely.
