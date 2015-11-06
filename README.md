@@ -14,12 +14,20 @@ Setup
   - `shell`
 - Install crew
   - `wget -q -O - https://raw.github.com/skycocker/chromebrew/master/install.sh | bash`
+  - `sudo chown -R chronos:chronos /usr/local`
   - installs binutils curl expat gcc gettext git glibc gmp libssh2 linuxheaders make mpc mpfr perl python readline ruby zlibpkg
 - Setup [git ssh keys] (https://help.github.com/articles/generating-ssh-keys/)
 - Clone this repo into home
  - `cd ~ && mkdir laptop && git clone git@github.com:nathansmyth/laptop.git laptop && cd laptop`
 - Run chromebook script
   - `sh ./chromebook`
+- Install crouton
+  - Download [crouton from link in repo description] (https://github.com/dnschneid/crouton/)
+  - `sudo sh -e ~/Downloads/crouton -t xiwi -r trusty`
+  - `sudo enter-chroot`
+  - Setup initial user account, and you're in Ubuntu 14.04!
+- Run ubuntu-docker script
+  - `cd ~/Downloads/laptop && sh ubuntu-docker`
 
 Roadmap
 ======
@@ -38,6 +46,7 @@ crew
 crouton
 * [crouton cookbook](http://tomwwolf.com/chromebook-14-compedium/chromebook-crouton-cookbook/)
 * [github repo](https://github.com/dnschneid/crouton)
+* [command cheat sheet](https://github.com/dnschneid/crouton/wiki/Crouton-Command-Cheat-Sheet)
 
 
 Requirements
