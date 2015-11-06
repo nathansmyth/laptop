@@ -1,0 +1,80 @@
+#!/bin/sh
+
+# Welcome to the chromebook script!
+# Be prepared to turn your chromebook
+# into an awesome development machine.
+
+fancy_echo() {
+  local fmt="$1"; shift
+
+  # shellcheck disable=SC2059
+  printf "\n$fmt\n" "$@"
+}
+
+append_to_zshrc() {
+  local text="$1" zshrc
+  local skip_new_line="${2:-0}"
+
+  if [ -w "$HOME/.zshrc.local" ]; then
+    zshrc="$HOME/.zshrc.local"
+  else
+    zshrc="$HOME/.zshrc"
+  fi
+
+  if ! grep -Fqs "$text" "$zshrc"; then
+    if [ "$skip_new_line" -eq 1 ]; then
+      printf "%s\n" "$text" >> "$zshrc"
+    else
+      printf "\n%s\n" "$text" >> "$zshrc"
+    fi
+  fi
+}
+
+if [ ! -f "$HOME/.zshrc" ]; then
+  touch "$HOME/.zshrc"
+fi
+
+fancy_echo 'linux kernal version:'
+uname -r
+
+# Install node and npm via nvm
+# from [digital ocean](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server)
+fancy_echo 'loading node stack...'
+if [ ! -d "$HOME/.nvm" ]; then
+  fancy_echo 'installing nvm'
+  sudo apt-get update
+  sudo apt-get install build-essential libssl-dev curl
+  curl https://raw.githubusercontent.com/creationix/nvm/v0.16.1/install.sh | sh
+  append_to_zshrc 'export NVM_DIR="/home/nathan/.nvm"'
+  append_to_zshrc '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
+fi
+
+fancy_echo 'trying to install node 5 via nvm...'
+which nvm
+nvm install 5 && nvm use 5
+
+fancy_echo 'node version manager version:'
+nvm --version
+
+fancy_echo 'node version:'
+node -v
+
+# from [digital ocean](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-14-04)
+
+sudo apt-get install nginx
+
+fancy_echo 'installing repositories'
+sh install-repositories
+
+sudo cp nginx.conf /etc/nginx/sites-available/default
+sudo service nginx restart
+
+if [ ! -f "$HOME/.nvm/v5.0.0/bin/pm2" ]; then
+  sudo apt-get install -y build-essential openssl libssl-dev pkg-config
+  npm install pm2 -g
+fi
+
+fancy_echo 'pm2 version:'
+pm2 -v
+
+# pm2 monit
