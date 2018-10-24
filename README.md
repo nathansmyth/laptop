@@ -15,12 +15,38 @@ Setup
 - Install crew
   - `wget -q -O - https://raw.github.com/skycocker/chromebrew/master/install.sh | bash`
   - `sudo chown -R chronos:chronos /usr/local`
-  - installs binutils curl expat gcc gettext git glibc gmp libssh2 linuxheaders make mpc mpfr perl python readline ruby zlibpkg
-- Setup [git ssh keys] (https://help.github.com/articles/generating-ssh-keys/)
+  - installs autoconf automake binutils bison cmake compressdoc diffutils doxygen expat filecmd flex gawk gcc7 gdbm gettext git glibc gmp gnutls groff icu4c intltool isl less libffi libiconv libidn2 libpipeline libpsl libsigsegv libssh2 libtasn1 libtool libunbound libunistring libxml2 linuxheaders lzi m4 make mandb manpages most mpc mpfr ncurses nettle openssl p11kit patch perl perl_locale_messages perl_text_unidecode perl_unicode_eastasianwidth perl_xml_parser pkgconfig readline ruby sed slang texinfo trousers unzip util_macros wget zip zlibpkg
+- Setup [git ssh keys] (https://help.github.com/articles/connecting-to-github-with-ssh/)
+- Setup git identity
+ - `git config --global user.name "Your Name"`
+ - `git config --global user.email "your@name.here"`
 - Clone this repo into home
  - `cd ~ && mkdir laptop && git clone git@github.com:nathansmyth/laptop.git laptop && cd laptop`
 - Run chromebook script
   - `sh ./chromebook`
+actually need to integrate following commands into a new script for the g5: 
+
+- python27 zsh
+ - `crew install python27 zsh`
+- setup zsh
+ - ``
+- setup python27
+ - `npm config set python /usr/local/lib/python2.7/`
+
+- nodebrew NGINX Redis (nodebrew is the chrome nvm)
+ - `crew install nodebrew nginx redis`
+- setup node
+ - `nodebrew install v8.12.0`
+ - `nodebrew use v8.12.0`
+
+F&F
+fix node-gyp
+`npm install node-gyp-install && ./node_modules/node-gyp-install/bin.js`
+
+
+
+'VMs' with crouton
+======
 - Install crouton
   - Download [crouton from link in repo description] (https://github.com/dnschneid/crouton/)
   - `sudo sh -e ~/Downloads/crouton -t xiwi -r trusty`
