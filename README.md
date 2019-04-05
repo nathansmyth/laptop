@@ -13,7 +13,7 @@ Setup
   - ctrl+alt+t
   - `shell`
 - Install crew
-  - `wget -q -O - https://raw.github.com/skycocker/chromebrew/master/install.sh | bash`
+  - `curl -Ls git.io/vddgY | bash`
   - `sudo chown -R chronos:chronos /usr/local`
   - installs binutils curl expat gcc gettext git glibc gmp libssh2 linuxheaders make mpc mpfr perl python readline ruby zlibpkg
 - Setup [git ssh keys] (https://help.github.com/articles/generating-ssh-keys/)
