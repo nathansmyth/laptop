@@ -39,7 +39,7 @@ Display public ip address:
 `curl http://ifconfig.me/ip`
 
 Display private ip address:
-`ip route get 1 | awk '{print $NF;exit}'`
+`ip route get 1 | cut -d ' ' -f 3`
 
 20150523
 --------
