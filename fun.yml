@@ -1,0 +1,23 @@
+---
+- name: testing ansible
+  hosts: sescodev
+  become: yes
+  become_user: root
+
+  tasks:
+    - name: ensure ansible is at latest version
+      yum:
+        name: ansible
+        state: latest
+    - name: ensure a list of packages installed
+      yum:
+        name: "{{ packages }}"
+        state: latest
+      vars:
+        packages:
+        - fortune-mod
+        - cowsay.noarch
+    - name: penguin a fortune
+      command: fortune | cowsay -f tux
+    - name: echo a message
+      debug: msg:"{{ packages }}"
