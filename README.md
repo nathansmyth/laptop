@@ -35,6 +35,11 @@ It can be run multiple times on the same machine safely.
 It installs, upgrades, or skips packages
 based on what is already installed on the machine.
 
+Display public ip address:
+`curl http://ifconfig.me/ip`
+
+Display private ip address:
+`ip route get 1 | awk '{print $NF;exit}'`
 
 20150523
 --------
